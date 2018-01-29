@@ -1,0 +1,15 @@
+{
+    "_id" : ObjectId("59954e5e7b613380f77d5d1c"),
+    "info" : {
+        "oid" : "lego_1",
+        "actions" : [],
+        "properties" : [],
+        "events" : [
+            {
+                "eid" : "energy_reduction",
+                "monitors" : "SomeEvent"
+            }
+        ],
+        "type" : "SomeSoftware"
+    }
+}

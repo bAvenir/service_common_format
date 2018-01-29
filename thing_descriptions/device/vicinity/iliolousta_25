@@ -1,0 +1,9 @@
+{
+    "_id" : ObjectId("5993f4b77b613380f77c97a2"),
+    "info" : {
+        "oid" : "iliolousta_25",
+        "actions" : [],
+        "properties" : [],
+        "type" : "Service"
+    }
+}

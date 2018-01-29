@@ -1,0 +1,119 @@
+{
+  "name": "Adaptive EV charging",
+  "type": "Service",
+  "version": "1.0.0",
+  "link": [{
+      "href":"https://play.google.com/store/apps/details?id=12341234",
+      "mediaType": "application/opensearchdescription+xml"
+    },
+    {
+      "href":"view-source:https://itunes.apple.com/sk/app/32984765523987564/id283416234?mt=12",
+      "mediaType": "text/html"
+    }],
+  "properties": [
+    {
+        "produces" : "ChargingProfile",
+        "output" : {
+            "datatype" : "Array",
+            "items": {
+              "type": "object",
+              "fields": [
+                {
+                  "name": "id",
+                  "value": {
+                    "type": "integer"
+                  }
+                },
+                {
+                  "name": "timeSlot",
+                  "type": "object",
+                  "fields": [
+                    {
+                      "name": "start",
+                      "value": {
+                        "type": "number",
+                        "untis": "seconds"
+                      }
+                    },
+                    {
+                      "name": "end",
+                      "value": {
+                        "type": "number",
+                        "units": "seconds"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+        }
+      }
+  ],
+  "actions": [],
+  "events": [
+  ],
+  "Requirements":{
+    "properties": [
+      {
+        "monitors":"MaximumChargingPower",
+        "output": {
+          "datatype" : "",
+          "units" :"kW"
+        },
+        "writable": "false"
+      },
+      {
+        "monitors":"NominalCapacity",
+        "output": {
+          "datatype": "",
+          "units": "kWh"
+        }
+        "writable": "false"
+      },
+      {
+        "monitors":"CharingActivePowerSetPoint",
+        "writable": "true",
+        "mandatory": "false"
+      },
+      {
+        "monitors":"ChargingProfile",
+        "mandatory": "false",
+        "output" : {
+            "datatype" : "Array",
+            "items": {
+              "type": "object",
+              "fields": [
+                {
+                  "name": "id",
+                  "value": {
+                    "type": "integer"
+                  }
+                },
+                {
+                  "name": "timeSlot",
+                  "type": "object",
+                  "fields": [
+                    {
+                      "name": "start",
+                      "value": {
+                        "type": "number",
+                        "untis": "seconds"
+                      }
+                    },
+                    {
+                      "name": "end",
+                      "value": {
+                        "type": "number",
+                        "units": "seconds"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+        }
+        "writable": "true"
+      }
+    ]
+  }
+}
