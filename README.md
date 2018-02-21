@@ -90,6 +90,8 @@ Each required interaction resource is specified by the interaction pattern fragm
 
 ---
 This project has received funding from the European Union's Horizon 2020 Research and innovation programme under Grand Agreement number: 688467 (VICINITY) and 731285 (SHAR-Q).
+
+
 ![H2020](/images/h2020-logo.png)
 ![Vicinity](/images/vicinity-logo.png)
 ![Shar-Q](/images/sharq-logo.png)
