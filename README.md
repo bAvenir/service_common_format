@@ -29,10 +29,9 @@ The [Property interaction pattern](https://www.w3.org/TR/wot-thing-description/#
 | Field name | JSON Construct | Mandatory | Description |
 | --- | --- | --- | ---|
 | monitors | array of objects | yes | One of the [property classes](http://iot.linkeddata.es/def/core/index-en.html) being monitored |
-| pid | string | yes | The unique name of the property in the single *STD*. |
+| pid | string | no | The unique name of the property in the single *STD*. |
 | output | object | yes | see [W3C Thing Description typed system](https://www.w3.org/TR/wot-thing-description/#type-system) |
-| read_links | array of objects | yes | [see Link](https://www.w3.org/TR/wot-thing-description/#link) |
-| write_links | array of objects | no | [see Link](https://www.w3.org/TR/wot-thing-description/#link) if present it is writable |
+| read_links | array of objects | no | [see Link](https://www.w3.org/TR/wot-thing-description/#link) |
 
 #### Action
 The [Action interaction pattern](https://www.w3.org/TR/wot-thing-description/#action) triggers changes or processes on a Thing that take a certain time to complete (i.e., actions cannot be applied instantaneously like property writes). Examples include an LED fade in, moving a robot, brewing a cup of coffee, etc. Usually, ongoing Actions are modelled as Task resources, which are created when an Action invocation is received by the Thing.
@@ -40,10 +39,10 @@ The [Action interaction pattern](https://www.w3.org/TR/wot-thing-description/#ac
 | Field name | JSON Construct | Mandatory | Description |
 | --- | --- | --- | ---|
 | affects | array of objects | yes | One of the [property classes](http://iot.linkeddata.es/def/core/index-en.html) being affected by the property |
-| aid | string | yes | The unique name of the action in the single *STD*. |
+| aid | string | no | The unique name of the action in the single *STD*. |
 | input | object | yes | see [W3C Thing Description typed system](https://www.w3.org/TR/wot-thing-description/#type-system) |
 | output | object | yes | see [W3C Thing Description typed system](https://www.w3.org/TR/wot-thing-description/#type-system) |
-| read_links | array of objects | yes | [see Link](https://www.w3.org/TR/wot-thing-description/#link) |
+| read_links | array of objects | no | [see Link](https://www.w3.org/TR/wot-thing-description/#link) |
 
 #### Event
 The [Event interaction pattern](https://www.w3.org/TR/wot-thing-description/#event) enables a mechanism for events to be notified by a Thing on a certain condition (e.g., the fill level of the water tank reached a given threshold).
@@ -66,6 +65,7 @@ Each required interaction resource is specified by the interaction pattern fragm
 | --- | --- | --- | ---|
 | monitors | array of objects | yes | One of the [property classes](http://iot.linkeddata.es/def/core/index-en.html) being monitored |
 | output | object | yes | see [W3C Thing Description typed system](https://www.w3.org/TR/wot-thing-description/#type-system) |
+| required | array of strings | no | Reference to `pid`, `aid` or `eid` which requires this required. If missing required for all interaction patterns|
 
 ##### Action requirement
 | Field name | JSON Construct | Mandatory | Description |
@@ -73,6 +73,7 @@ Each required interaction resource is specified by the interaction pattern fragm
 | affects | array of objects | yes | One of the [property classes](http://iot.linkeddata.es/def/core/index-en.html) being affected by the property |
 | aid | string | yes | The unique name of the action in the single *STD*. |
 | input | object | yes | see [W3C Thing Description typed system](https://www.w3.org/TR/wot-thing-description/#type-system) |
+| required | array of strings | no | Reference to `pid`, `aid` or `eid` which requires this required. If missing required for all interaction patterns|
 
 
 ##### Event requirement
@@ -80,19 +81,169 @@ Each required interaction resource is specified by the interaction pattern fragm
 
 
 ## JSON Serialization
-
-### Data collector
-
-### Ecosystem controller
+The following section defines examples of the service description which can be taken as template.
 
 ### Data aggregator
+This *STD* pattern present the service which monitors the device properties to produce aggregated values to the Service user. This example describes the resource monitoring service which reads the Actual energy and water consumption and produces the average values. Note, properties does not have read_links nor pid provided -  this means that these properties are not available in VICINITY Peer to peer network, however it is only available through the service interface.
+
+```javascript
+{
+  "name": "Resource monitoring service",
+  "type": "Service",
+  "version": "1.0.1",
+  "oid": "f9bcceae-16f3-11e8-b642-0ed5f89f718b",
+  "requirements":{
+    "properties": [
+      {
+        "monitors":"ActualEnergyConsumption",
+        "output": {
+          "datatype" : "",
+          "units" :"kwh"
+        },
+        "required": ['averagePowerConsumption']
+      },
+      {
+        "monitors":"ActualWaterConsumption",
+        "output": {
+          "datatype": "",
+          "units": "m3h"
+        },
+        "required": ['averageWaterConsumption']
+      }]
+  }
+  "properties": [
+    {
+        "monitors" : "AveragePowerConsumption",
+        "pid": "averagePowerConsumption",
+        "requirement": "true",
+        "output" : {
+            "datatype" : "float",
+            "units" : "kW"
+        }
+      }
+    {
+        "monitors" : "AverageWaterConsumption",
+        "pid": "averageWaterConsumption",
+        "output" : {
+            "datatype" : "float",
+            "units" : "m3"
+        }
+    }
+  ]
+}
+```
+
+#### Supporting multiple interaction patterns of one interaction resource
+There might be the case that service supports the two interaction patterns to monitor on interaction resource, e.g. actual energy consumption. In this case the fragment of the *STD* will looks like as follows.
+```javascript
+"requirements":{
+  "properties": [
+    {
+      "monitors":"ActualEnergyConsumption",
+      "output": {
+        "datatype" : "",
+        "units" :"kwh"
+      }
+    }],
+  "events": [
+    {
+      "monitors":"ActualEnergyConsuption",
+      "output": {
+        "datatype" : "",
+        "units" :"kwh"
+      }
+    }
+  ]
+}
+```
+
+### Ecosystem controller
+Ecosystem controller is able to monitor the devices for particular properties and perform the control actions based on business logic. Note, that *STD* does not describes the business logic. However, it defines the required action available which needs will be used by the service to perform control actions.
+
+```javascript
+{
+  "name": "Resource management service",
+  "type": "Service",
+  "version": "1.0.1",
+  "oid": "f9bcceae-16f3-11e8-b642-0ed5f89f718b",
+  "requirements":{
+    "properties": [
+      {
+        "monitors":"ActualEnergyConsumption",
+        "output": {
+          "datatype" : "",
+          "units" :"kwh"
+        },
+        "required": ['averagePowerConsumption']
+      },
+      {
+        "monitors":"ActualWaterConsumption",
+        "output": {
+          "datatype": "",
+          "units": "m3h"
+        }
+        "required": ['averageWaterConsumption']
+      }],
+    "actions": [
+      {
+        "affects": "OnOff",
+        "input" : {
+          "datatype": "",
+          "units": "Adimensional"
+        }
+        "required": ['waterLeak']
+      }
+    ],
+    "events": [
+      {
+        "monitors":"WaterLeak",
+        "output": {
+          "datatype": "boolean",
+          "units": "Adimensional"
+        }
+        "required": ['waterLeak']
+      }
+    ]
+  }
+  "properties": [
+    {
+      "monitors" : "AveragePowerConsumption",
+      "pid": "averagePowerConsumption",
+      "output" : {
+          "datatype" : "float",
+          "units" : "kW"
+      }
+      "read_links": [
+        {
+          "href" : "http://api.myexample.com/avgPowerConsumption",
+          "mediaType" : "application/json"
+        }
+      ]
+    },
+    {
+      "monitors" : "AverageWaterConsumption",
+      "pid": "averageWaterConsumption",
+      "output" : {
+          "datatype" : "float",
+          "units" : "m3"
+      }
+    },
+    {
+      "monitors" : "WaterLeak",
+      "pid": "waterLeak",
+      "output" : {
+          "datatype" : "boolean",
+          "units" : "Adimensional"
+      }
+    }
+  ]
+}
+```
+
+## JSON STD Schema
+> Note: JSON STD Schema is under development
+
 
 
 ---
-This project has received funding from the European Union's Horizon 2020 Research and innovation programme under Grand Agreement number: 688467 (VICINITY) and 731285 (SHAR-Q).
-
-
-![H2020](/images/h2020-logo.png)
-![Vicinity](/images/vicinity-logo.png)
-![Shar-Q](/images/sharq-logo.png)
-![IoT-EPI](/images/iot-epi-logo.png)
+![H2020](/images/h2020-logo.png) This project has received funding from the European Union's Horizon 2020 Research and innovation programme under Grand Agreement number: 688467 (VICINITY) and 731285 (SHAR-Q).
