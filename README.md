@@ -5,8 +5,10 @@ The **VICINITY Service Thing Description (STD)** defines the VICINITY Value-adde
 The *STDs* are created by Value-added service provider and registered in VICINITY Platform. The *STDs* are used to discover services and to perform actual interaction with the service.
 
 ## Vocabulary
+---
 In the specification the following conceptual terms needs to be defined:
 ### Value-added service
+---
 The service is defined by the following attributes:
 
 | Field name | JSON Construct | Mandatory | Description |
@@ -22,7 +24,10 @@ The service is defined by the following attributes:
 
 
 ### Interaction resource
+---
 Interaction resource is any type of resource through which it is possible to interact with Thing. The resource can be property, action and event. The interaction resource can be digital representation of the real resource in physical representation of the Thing or can be calculated one.
+
+
 #### Property
 The [Property interaction pattern](https://www.w3.org/TR/wot-thing-description/#property) provides readable and/or writeable data that can be static (e.g., supported mode, rated output voltage, etc.) or dynamic (e.g., current fill level of water, minimum recorded temperature, etc.).
 
@@ -32,6 +37,8 @@ The [Property interaction pattern](https://www.w3.org/TR/wot-thing-description/#
 | pid | string | no | The unique name of the property in the single *STD*. |
 | output | object | yes | see [W3C Thing Description typed system](https://www.w3.org/TR/wot-thing-description/#type-system) |
 | read_links | array of objects | no | [see Link](https://www.w3.org/TR/wot-thing-description/#link) |
+
+
 
 #### Action
 The [Action interaction pattern](https://www.w3.org/TR/wot-thing-description/#action) triggers changes or processes on a Thing that take a certain time to complete (i.e., actions cannot be applied instantaneously like property writes). Examples include an LED fade in, moving a robot, brewing a cup of coffee, etc. Usually, ongoing Actions are modelled as Task resources, which are created when an Action invocation is received by the Thing.
@@ -44,12 +51,15 @@ The [Action interaction pattern](https://www.w3.org/TR/wot-thing-description/#ac
 | output | object | yes | see [W3C Thing Description typed system](https://www.w3.org/TR/wot-thing-description/#type-system) |
 | read_links | array of objects | no | [see Link](https://www.w3.org/TR/wot-thing-description/#link) |
 
+
+
 #### Event
 The [Event interaction pattern](https://www.w3.org/TR/wot-thing-description/#event) enables a mechanism for events to be notified by a Thing on a certain condition (e.g., the fill level of the water tank reached a given threshold).
 
 > Note: event specification is undergoing.
 
-#### Requirements
+### Requirements
+---
 The requirements are the list of interaction resources that are needed by the service to function properly (e.g. to calculate average energy consumption by the service the monitoring of action energy consumption is required). The requirements are specified as list of property, action and event requirements.
 
 | Field name | JSON Construct | Mandatory | Description |
@@ -81,9 +91,11 @@ Each required interaction resource is specified by the interaction pattern fragm
 
 
 ## JSON Serialization
+---
 The following section defines examples of the service description which can be taken as template.
 
 ### Data aggregator
+---
 This *STD* pattern present the service which monitors the device properties to produce aggregated values to the Service user. This example describes the resource monitoring service which reads the Actual energy and water consumption and produces the average values. Note, properties does not have read_links nor pid provided -  this means that these properties are not available in VICINITY Peer to peer network, however it is only available through the service interface.
 
 ```javascript
@@ -158,6 +170,7 @@ There might be the case that service supports the two interaction patterns to mo
 ```
 
 ### Ecosystem controller
+---
 Ecosystem controller is able to monitor the devices for particular properties and perform the control actions based on business logic. Note, that *STD* does not describes the business logic. However, it defines the required action available which needs will be used by the service to perform control actions.
 
 ```javascript
