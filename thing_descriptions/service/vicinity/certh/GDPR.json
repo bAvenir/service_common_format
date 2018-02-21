@@ -1,0 +1,123 @@
+{
+  "name": "GDPR Service",
+  "oid": "GDPR",
+  "type": "Service",
+  "version": "0.0.1",
+  "operations": [
+      {
+        "verb": "POST",
+        "link": [
+          {
+            "href": "http://iti.gr/individual/GDPR",
+            "accepts_mediaType": "application/json",
+            "produces_mediaType": "application/json"
+          }
+        ],
+        "actions": [],
+        "properties": [
+            {
+                "monitors": "BloodPressure",
+                "output": {
+                    "datatype": "double",
+                    "units": "mmHg"
+                },
+                "pid": "blood_pressure",
+                "read_links": [],
+                "writable": false,
+                "write_links": []
+            },
+            {
+                "monitors": "Weight",
+                "output": {
+                    "datatype": "double",
+                    "units": "kg"
+                },
+                "pid": "weight",
+                "read_links": [],
+                "writable": false,
+                "write_links": []
+            },
+            {
+                "monitors": "PanicButton",
+                "output": {
+                    "datatype": "boolean",
+                    "units": "Adimensional"
+                },
+                "pid": "panic_button",
+                "read_links": [],
+                "writable": false,
+                "write_links": []
+            },
+            {
+                "monitors": "UserId",
+                "output": {
+                    "datatype": "string",
+                    "units": "Adimensional"
+                },
+                "pid": "id",
+                "read_links": [],
+                "writable": false,
+                "write_links": []
+            },
+            {
+                "produces": "message",
+                "output": {
+                    "datatype": "String",
+                    "units": "Adimensional"
+                },
+                "pid": "message",
+                "read_links": [],
+                "writable": false,
+                "write_links": []
+            }
+        ],
+        "events": []
+      },
+      {
+        "verb": "GET",
+        "link": [
+          {
+            "href": "http://iti.gr/individual/GDPR",
+            "produces_mediaType": "application/json"
+          }
+        ],
+        "actions": [],
+        "properties": [
+            {
+                "monitors": "type",
+                "output": {
+                    "datatype": "String",
+                    "units": "Adimentional"
+                },
+                "pid": "type",
+                "read_links": [],
+                "writable": false,
+                "write_links": []
+            },
+            {
+                "monitors": "UserId",
+                "output": {
+                    "datatype": "string",
+                    "units": "Adimensional"
+                },
+                "pid": "id",
+                "read_links": [],
+                "writable": false,
+                "write_links": []
+            },
+            {
+                "produces": "Statistics",
+                "output": {
+                    "datatype": "object of 3 arrays",
+                    "units": ""
+                },
+                "pid": "statistics",
+                "read_links": [],
+                "writable": false,
+                "write_links": []
+            }
+        ],
+        "events": []
+      }
+    ]
+}

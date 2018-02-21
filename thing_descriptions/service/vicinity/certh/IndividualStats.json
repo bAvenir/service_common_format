@@ -1,0 +1,72 @@
+{
+  "name": "Individual Statistics",
+  "oid": "Individual_Statistics",
+  "type": "Service",
+  "version": "0.0.1",
+  "link": [
+    {
+      "href": "http://iti.gr/individual/statistics",
+      "mediaType": "aaplication/json"
+    }
+  ],
+        "actions": [],
+        "properties": [
+            {
+                "monitors": "BloodPressure",
+                "output": {
+                    "datatype": "array of double",
+                    "units": "mmHg"
+                },
+                "pid": "blood_pressure",
+                "read_links": [],
+                "writable": false,
+                "write_links": []
+            },
+            {
+                "monitors": "Weight",
+                "output": {
+                    "datatype": "array of double",
+                    "units": "kg"
+                },
+                "pid": "weight",
+                "read_links": [],
+                "writable": false,
+                "write_links": []
+            },
+            {
+                "monitors": "PanicButton",
+                "output": {
+                    "datatype": "array of boolean",
+                    "units": "Adimensional"
+                },
+                "pid": "panic_button",
+                "read_links": [],
+                "writable": false,
+                "write_links": []
+            },
+            {
+                "monitors": "UserId",
+                "output": {
+                    "datatype": "string",
+                    "units": "Adimensional"
+                },
+                "pid": "id",
+                "read_links": [],
+                "writable": false,
+                "write_links": []
+            },
+            {
+                "produces": "Statistics",
+                "output": {
+                    "datatype": "object",
+                    "units": "Adimensional"
+                },
+                "pid": "health_statistics",
+                "read_links": [],
+                "writable": false,
+                "write_links": []
+            }
+        ],
+		"events": []
+
+}

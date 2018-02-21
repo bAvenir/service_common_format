@@ -1,0 +1,52 @@
+{
+  "name": "GDPR Service",
+  "oid": "GDPR",
+  "type": "Service",
+  "version": "0.0.1",
+  "description": {
+		"link": [
+		  {
+			"href": "http://iti.gr/individual/GDPR.raml",
+			"mediaType": ""
+		  }
+		]
+	},	
+	"actions": [
+		{
+			"affects": "",
+			"aid": "write_measurement",
+			"input": {
+				"datatype": "",
+				"units": "Adimensional"
+			},
+			"read_links": [],
+			"write_links": [
+				{
+					"href": "/objects/{oid}/actions/{aid}",
+					"mediaType": "application/json"
+				}
+			]
+		}
+
+	],
+	"properties": [
+		{
+			"monitors": "",
+			"output": {
+				"datatype": "",
+				"units": ""
+			},
+			"pid": "getStatistics",
+			"read_links": [
+				{
+					"href": "/objects/{oid}/properties/{pid}",
+					"mediaType": "application/json"
+				}
+			],
+			"writable": true,
+			"write_links": []
+		}
+
+	],
+	"events": []    
+}

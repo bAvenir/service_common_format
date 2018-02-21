@@ -1,0 +1,73 @@
+{
+  "name": "Example Service",
+  "oid": "service-oid",
+  "type": "Service",
+  "version": "0.0.1",
+  "properties":[
+    {
+      "monitors" : "TodayForecast",
+      "pid": "todayForecast",
+      "output": {
+            "type": "object",
+            "fields": [
+                {
+                    "name": "temperature",
+                    "value": {
+                      "type": "integer",
+                      "units": "Celsius"
+                    }
+                },
+                {
+                    "name": "humidity",
+                    "value": {
+                      "type": "float",
+                      "units": "Percentage"
+                    }
+                }
+            ],
+        }
+
+      }
+      "read_links": [
+        {
+            "href": "/objects/charginStation/properties/currentReactivePowerLoad"
+            "mediaType": "application/json"
+        }
+      ]
+    }
+  ],
+  "actions":[
+    {
+      "monitors": "HealthStatics",
+      "pid": "healthStatics",
+      "input":{
+        "type": "object",
+        "fields": [
+            {
+                "name": "bloodpressure",
+                "value": {
+                  "type": "integer",
+                  "units": "Celsius"
+                }
+            },
+            {
+                "name": "temperature",
+                "value": {
+                  "type": "float",
+                  "units": "Percentage"
+                }
+            }
+        ],
+      },
+      "output":{
+
+      },
+      "write_links": [{
+
+      }]
+    }
+  ],
+  "events":[
+
+  ]
+}

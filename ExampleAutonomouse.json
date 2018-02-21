@@ -1,0 +1,49 @@
+{
+  "name": "Example Auto Service",
+  "oid": "service-oid",
+  "type": "Service",
+  "version": "0.0.1",
+  "Requirements": {
+    "properties":[
+      {
+          "monitors" : "EnergyConsumption",
+          "output" : {
+              "datatype" : "float",
+              "units" : "m3"
+          },
+          "optional": true,
+      },
+      {
+          "monitors" : "Luminance",
+          "output" : {
+              "datatype" : "float",
+              "units" : "m3"
+          }
+      },
+      {
+          "monitors" : "Dimming",
+          "output" : {
+              "datatype" : "float",
+              "units" : "m3"
+          },
+          "writable": true;
+      }
+    ],
+    "actions":[
+      {
+        "affects" : "OnOff",
+        "input" : {}
+        "output" : {}
+
+      }],
+    "events":[
+      {
+        "monitors": "EnergySurplus",
+        "output": {
+          "datatype": "integer",
+          "units":"Adimensional"
+        }
+      }
+    ]
+  }
+}

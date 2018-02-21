@@ -1,0 +1,88 @@
+{
+  "name": "GDPR Service",
+  "oid": "GDPR",
+  "type": "Service",
+  "version": "0.0.1",
+  "requirements":
+    {
+      "properties":[
+        {
+          "monitors": "BloodPressure",
+          "output":{
+            "datatype": "float",
+            "units": "Pascal"
+          },
+          "optional":"true"
+        }
+      ],
+      "events":[
+        {
+          "monitors": "BloodPressure",
+          "output": {
+            "datatype": "float",
+            "units":"Pascal"
+          },
+          "optonal":"true",
+          "write_links": {...link...} //check with martin how events works
+        }
+    ]
+  },
+	"actions": [
+    {
+      "aid":"energyData"
+    },
+    {
+      "aid":"healthData",
+      "input":{
+        "type": "object",
+        "fields": [
+          {
+            "name": "objectId",
+            "value": {
+              "type": "integer",
+              "unit": "Adimensional"
+            }
+          }
+        ]
+      },
+      "output": {
+        "type": "arrays",
+        ...
+      },
+      "write_links": [...link...]
+    },
+    {
+      "aid":"accessLogs",
+      "input":{
+        "name": "objecId",
+        "type": "uuid",
+        "units": "Adimensional"
+      },
+      "output":{
+        "type": "arrays",
+        ...
+      },
+      "write_links": [...link...]
+    }
+	],
+	"properties": [
+		{
+			"monitors": "HealthStatics",
+			"output": {
+				"datatype": "",
+				"units": ""
+			},
+			"pid": "getStatistics",
+			"read_links": [
+				{
+					"href": "/objects/{oid}/properties/{pid}",
+					"mediaType": "application/json"
+				}
+			],
+			"writable": true,
+			"write_links": []
+		}
+
+	],
+	"events": []
+}
