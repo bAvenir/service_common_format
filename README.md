@@ -1,8 +1,8 @@
-# VICINITY Service Thing Description (STD)
+# Service Common Format (SCF)
 
-The **VICINITY Service Thing Description (STD)** defines the VICINITY Value-added service and describes the interaction between devices and service layer and interaction between service and service user.
+The **Service Common Format (SCF)** defines the Value-added service and describes the interaction between devices and service layer and interaction between service and service user.
 
-The *STDs* are created by Value-added service provider and registered in VICINITY Platform. The *STDs* are used to discover services and to perform actual interaction with the service.
+The *SCF* are created by Value-added service provider and registered in VICINITY Platform. The *SCF* are used to discover services and to perform actual interaction with the service.
 
 ## Vocabulary
 ---
@@ -96,7 +96,7 @@ The following section defines examples of the service description which can be t
 
 ### Data aggregator
 ---
-This *STD* pattern present the service which monitors the device properties to produce aggregated values to the Service user. This example describes the resource monitoring service which reads the Actual energy and water consumption and produces the average values. Note, properties does not have read_links nor pid provided -  this means that these properties are not available in VICINITY Peer to peer network, however it is only available through the service interface.
+This *SCF* pattern present the service which monitors the device properties to produce aggregated values to the Service user. This example describes the resource monitoring service which reads the Actual energy and water consumption and produces the average values. Note, properties does not have read_links nor pid provided -  this means that these properties are not available in VICINITY Peer to peer network, however it is only available through the service interface.
 
 ```javascript
 {
@@ -146,7 +146,7 @@ This *STD* pattern present the service which monitors the device properties to p
 ```
 
 #### Supporting multiple interaction patterns of one interaction resource
-There might be the case that service supports the two interaction patterns to monitor on interaction resource, e.g. actual energy consumption. In this case the fragment of the *STD* will looks like as follows.
+There might be the case that service supports the two interaction patterns to monitor on interaction resource, e.g. actual energy consumption. In this case the fragment of the *SCF* will looks like as follows.
 ```javascript
 "requirements":{
   "properties": [
@@ -171,7 +171,7 @@ There might be the case that service supports the two interaction patterns to mo
 
 ### Ecosystem controller
 ---
-Ecosystem controller is able to monitor the devices for particular properties and perform the control actions based on business logic. Note, that *STD* does not describes the business logic. However, it defines the required action available which needs will be used by the service to perform control actions.
+Ecosystem controller is able to monitor the devices for particular properties and perform the control actions based on business logic. Note, that *SCF* does not describes the business logic. However, it defines the required action available which needs will be used by the service to perform control actions.
 
 ```javascript
 {
@@ -253,8 +253,8 @@ Ecosystem controller is able to monitor the devices for particular properties an
 }
 ```
 
-## JSON STD Schema
-> Note: JSON STD Schema is under development
+## JSON SCF Schema
+> Note: JSON SCF Schema is under development
 
 
 
