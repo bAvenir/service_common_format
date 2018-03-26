@@ -14,7 +14,7 @@ The service is defined by the following attributes:
 | Field name | JSON Construct | Mandatory | Description |
 | --- | --- | --- | ---|
 | name | string | yes | Defines the human readable name of the service visible in the VICINITY Neighbourhood Manager
-| type | string | yes | Defines type of Thing desctipion (default: 'Service')|
+| type | string | yes | Defines type of Thing desctipion (value from [hierarchy of devices and services](http://iot.linkeddata.es/def/core/index-en.html) )|
 | version | string | yes |Defines the version of the service. It is possible to have registered different version of the services |
 | oid | string | no | The unique identifier of the service in VICINITY Platform. Provided by the platform after successful service registration |
 | requirements | array of objects | no | [see Requirements](#vocabulary) |
@@ -33,10 +33,11 @@ The [Property interaction pattern](https://www.w3.org/TR/wot-thing-description/#
 
 | Field name | JSON Construct | Mandatory | Description |
 | --- | --- | --- | ---|
-| monitors | array of objects | yes | One of the [property classes](http://iot.linkeddata.es/def/core/index-en.html) being monitored |
+| monitors | string | yes | One of the [property classes](http://iot.linkeddata.es/def/core/index-en.html) being monitored |
 | pid | string | no | The unique name of the property in the single *STD*. |
 | output | object | yes | see [W3C Thing Description typed system](https://www.w3.org/TR/wot-thing-description/#type-system) |
 | read_links | array of objects | no | [see Link](https://www.w3.org/TR/wot-thing-description/#link) |
+| write_links | array of objects | no | [see Link](https://www.w3.org/TR/wot-thing-description/#link) |
 
 
 
@@ -45,7 +46,7 @@ The [Action interaction pattern](https://www.w3.org/TR/wot-thing-description/#ac
 
 | Field name | JSON Construct | Mandatory | Description |
 | --- | --- | --- | ---|
-| affects | array of objects | yes | One of the [property classes](http://iot.linkeddata.es/def/core/index-en.html) being affected by the property |
+| affects | string | yes | One of the [property classes](http://iot.linkeddata.es/def/core/index-en.html) being affected by the property |
 | aid | string | no | The unique name of the action in the single *STD*. |
 | input | object | yes | see [W3C Thing Description typed system](https://www.w3.org/TR/wot-thing-description/#type-system) |
 | output | object | yes | see [W3C Thing Description typed system](https://www.w3.org/TR/wot-thing-description/#type-system) |
@@ -81,8 +82,8 @@ Each required interaction resource is specified by the interaction pattern fragm
 | Field name | JSON Construct | Mandatory | Description |
 | --- | --- | --- | ---|
 | affects | array of objects | yes | One of the [property classes](http://iot.linkeddata.es/def/core/index-en.html) being affected by the property |
-| aid | string | yes | The unique name of the action in the single *STD*. |
 | input | object | yes | see [W3C Thing Description typed system](https://www.w3.org/TR/wot-thing-description/#type-system) |
+| output | object | yes | see [W3C Thing Description typed system](https://www.w3.org/TR/wot-thing-description/#type-system)
 | required | array of strings | no | Reference to `pid`, `aid` or `eid` which requires this required. If missing required for all interaction patterns|
 
 

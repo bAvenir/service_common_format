@@ -1,0 +1,134 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+
+	"definitions" : {
+		"links":
+		{
+			"type": "array",
+			"items":
+			{
+					"type": "object",
+					"properties":
+					{
+							"href": "string",
+							"mediaType": "string"
+					},
+					"required" : ["href", "mediaType"]
+			}
+		},
+		"arrayOfString":
+		{
+			"type": "array",
+			"items": {"type": "string"}
+		},
+		"thingType":
+		{
+			"type": "string",
+			"enum": ["Service", "Device", "Actuator", "Sensor", "Charger", "Lightbulb",
+				"PanicButton","Battery", "HVACSensor", "LightSwitch", "Thermostat",
+				"SmartOven", "SmartRefrigerator", "BeaconReader", "ActivityTracker",
+				"BloodPressureMonitor", "DoorSensor", "PressureMat", "WeightScale",
+				"CO2Sensor", "HumiditySensor", "IndoorClimateQualitySensor",
+				"LuminanceMeter", "MotionSensor", "NoiseSensor", "OccupancySensor",
+				"PeopleCounter", "PowerMeter", "Thermometer", "WaterEnergyMeter",
+				"WaterFlowMeter", "EBikeCharger", "EVCharger"]
+		},
+		"thingProperty":
+		{
+			"type": "string",
+			"enum": ["AmbientTemperature", "AverageCO2Concentration", "AverageCO2ConcentrationDeviation",
+				"AverageHumidity", "AverageHumidityDeviation", "AverageLightIntensity", "AverageMovemenetShare",
+				"AverageMovementTime", "AverageSound", "AverageSoundDeviation",
+				"AverageTemperature", "AverageTemperatureDeviation", "BakeRemainingTime",
+				"BakingStep", "CaloriesBurned", "ChargeStatus", "CO2Concentration",
+				"CurrentBakingStepRemainingTime", "DeviceLightStatus", "DeviceStatus",
+				"DeviceTemperature", "DiastolicBloodPressure", "DimmingLevel", "DistanceWalked",
+				"ElapsedBakingTime", "EntryExit", "FanSpeed", "HeartRate", "HeaterDefaultTemperature",
+				"HeaterMaxTemperature", "HeaterMeatProbeAllowed", "HeaterMinTemperature",
+				"HeaterPreheatAllowed", "HighestCO2ConcentrationDeviation", "HighestSoundDeviation",
+				"HighestHumidityDeviation", "HighestTemperatureDeviation", "IndoorEnvironmentalQualityScore",
+				"LightColor", "Luminance", "MaxCO2Concentration", "MaxHumidity", "MaxLightIntensity",
+				"MaxPowerConsumption", "MaxSound", "MaxTemperature", "MeanPowerConsumption",
+				"MeatProbeTemperature", "MinLightIntensity", "MinCO2Concentration", "MinPowerConsumption",
+				"MinSound", "MinTemperature", "MinHumidity", "Mode", "Motion", "NoiseLevel", "OnOff",
+				"OpenClosed", "RelativeHumidity", "Sleep", "Steps", "StoredEnergy", "SystolicBloodPressure",
+				"ValvePosition", "Weight"]
+		}
+	},
+
+	"title" : "VICINITY Service commmon format",
+    "description" : "This is a schema to validate Service common format",
+    "type" : "object",
+    "properties":
+    {
+      "name": { "type": "string"},
+      "type": { "$ref", "#/definitions/thingType"},
+      "version": { "type": "string"},
+      "oid": {"type":"string"},
+      "requirements":
+      {
+          "type": "object",
+          "properties":
+          {
+          	"properties":
+            {
+              "type": "array",
+              "items":
+              {
+                "type": "object",
+                "properties":
+                {
+                  "monitors": { "$ref": "#/definitions/thingProperty"},
+                  // add output property test
+                  "required": { "$ref": "#/definitions/arrayOfString"}
+                },
+                "required": ["monitors"]
+              }
+            },
+            "actions":
+            {
+              "type": "array",
+              "items":
+              {
+                "type": "object",
+                "properties":
+                {
+                  "affects": { "$ref": "#/definitions/thingProperty"},
+                  // add input, output action requirements
+                  "required": { "$ref": "#/definitions/arrayOfString"}
+                },
+                "required": ["affects"]
+              }
+            },
+            "events": {"type": "array"}
+		      }
+      },
+      "properties" :
+      {
+        "type": "object",
+        "properties":
+        {
+          "monitors":{ "$ref": "#/definitions/thingProperty"},
+          "pid": {"type": "string"},
+          // add output property test
+					"read_links": { "$ref": "#/definitions/links"},
+					"write_links": { "$ref": "#/definitions/links"}
+        },
+				"required": ["monitors", "pid"]
+      },
+      "actions" :
+			{
+        "type": "object",
+        "properties":
+        {
+          "affects":{ "$ref": "#/definitions/thingProperty"},
+          "aid": {"type": "string"},
+          // add output property test
+					"read_links": { "$ref": "#/definitions/links"},
+        },
+				"required": ["affects", "aid"]
+      },
+      "events"  : {"type": "array"}
+    },
+    "required": ["name", "type", "version"]
+}
