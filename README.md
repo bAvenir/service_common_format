@@ -1,3 +1,6 @@
+Table of content
+[TOC]
+
 # Service Common Format (SCF)
 
 The **Service Common Format (SCF)** defines the Value-added service and describes the interaction between devices and service layer and interaction between service and service user.
