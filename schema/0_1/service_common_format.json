@@ -127,7 +127,7 @@
 					{
 						"affects":{ "$ref": "#/definitions/thingProperty"},
 						"aid": {"type": "string"},
-						"read_links": { "$ref": "#/definitions/links"},
+						"write_links": { "$ref": "#/definitions/links"},
 					},
 					"required": ["affects", "aid"]
 				}
