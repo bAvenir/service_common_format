@@ -62,7 +62,7 @@
     "properties":
     {
       "name": { "type": "string"},
-      "type": { "$ref", "#/definitions/thingType"},
+      "type": { "$ref": "#/definitions/thingType"},
       "version": { "type": "string"},
       "oid": {"type":"string"},
       "requirements":
@@ -79,7 +79,6 @@
                 "properties":
                 {
                   "monitors": { "$ref": "#/definitions/thingProperty"},
-                  // add output property test
                   "required": { "$ref": "#/definitions/arrayOfString"}
                 },
                 "required": ["monitors"]
@@ -94,7 +93,6 @@
                 "properties":
                 {
                   "affects": { "$ref": "#/definitions/thingProperty"},
-                  // add input, output action requirements
                   "required": { "$ref": "#/definitions/arrayOfString"}
                 },
                 "required": ["affects"]
@@ -110,9 +108,8 @@
         {
           "monitors":{ "$ref": "#/definitions/thingProperty"},
           "pid": {"type": "string"},
-          // add output property test
-					"read_links": { "$ref": "#/definitions/links"},
-					"write_links": { "$ref": "#/definitions/links"}
+	  "read_links": { "$ref": "#/definitions/links"},
+	  "write_links": { "$ref": "#/definitions/links"}
         },
 				"required": ["monitors", "pid"]
       },
@@ -123,8 +120,7 @@
         {
           "affects":{ "$ref": "#/definitions/thingProperty"},
           "aid": {"type": "string"},
-          // add output property test
-					"read_links": { "$ref": "#/definitions/links"},
+	  "read_links": { "$ref": "#/definitions/links"},
         },
 				"required": ["affects", "aid"]
       },
