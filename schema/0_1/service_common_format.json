@@ -114,7 +114,7 @@
 		  			"read_links": { "$ref": "#/definitions/links"},
 		  			"write_links": { "$ref": "#/definitions/links"}
 	        },
-					"required": ["monitors", "pid"]
+					"required": ["monitors", "pid", "read_links"]
 	      }
 			},
       "actions" :
@@ -127,9 +127,10 @@
 					{
 						"affects":{ "$ref": "#/definitions/thingProperty"},
 						"aid": {"type": "string"},
-						"write_links": { "$ref": "#/definitions/links"},
+						"read_links": { "$ref": "#/definitions/links"},
+						"write_links": { "$ref": "#/definitions/links"}
 					},
-					"required": ["affects", "aid"]
+					"required": ["affects", "aid", "write_links"]
 				}
 			},
       "events"  :
@@ -141,8 +142,7 @@
 	        "properties":
 	        {
 	          "monitors":{ "$ref": "#/definitions/thingProperty"},
-	          "eid": {"type": "string"},
-						"read_links": { "$ref": "#/definitions/links"}
+	          "eid": {"type": "string"}
 					},
 					"required": ["monitors", "eid"]
 	      }
