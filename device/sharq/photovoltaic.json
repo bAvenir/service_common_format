@@ -1,0 +1,299 @@
+{
+    "oid": "dummyphotovoltaic",
+    "name": "Dummy photovoltaic template",
+    "type": "adap:PhotovoltaicPanel",
+    "properties": [
+        {
+            "pid": "nominalproductioncapacity",
+            "monitors": "NominalProductionCapacity",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "location",
+            "monitors": "Location",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "latitude",
+                            "schema": {
+                                "type": "number"
+                            }
+                        },
+                        {
+                            "name": "longitude",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "azimuth",
+            "monitors": "Azimuth",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "integer"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "elevation",
+            "monitors": "Elevation",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "integer"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "serviceLevel",
+            "monitors": "ServiceLevel",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "reactivepowerproduction",
+            "monitors": "ReactivePowerProduction",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "accumulatedenergyimportedtogrid",
+            "monitors": "AccumulatedEnergyImportedToGrid",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "integer"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "activepowerproduction",
+            "monitors": "ActivePowerProduction",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "integer"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "actions": [
+        {
+            "aid": "set-activepowersetpoint",
+            "affects": "ActivePowerSetPoint",
+            "read_link": {
+                "href": "/device/{oid}/status/{aid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "action",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "status",
+                            "schema": {
+                                "type": "integer"
+                            }
+                        }
+                    ]
+                }
+            },
+            "write_link": {
+                "href": "/pv/set-activepowersetpoint/{oid}",
+                "input": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "activepowersetpoint-level",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                },
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "success",
+                            "schema": {
+                                "type": "boolean"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "aid": "set-reactivepowersetpoint",
+            "affects": "ReactivePowerSetPoint",
+            "read_link": {
+                "href": "/device/{oid}/status/{aid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "action",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "status",
+                            "schema": {
+                                "type": "integer"
+                            }
+                        }
+                    ]
+                }
+            },
+            "write_link": {
+                "href": "/pv/set-reactivepowersetpoint/{oid}",
+                "input": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "reactivepowersetpoint-level",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                },
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "success",
+                            "schema": {
+                                "type": "boolean"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,353 @@
+{
+    "oid": "dummyevcharger",
+    "name": "The example description of dummy battery",
+    "type": "adap:EVCharger",
+    "properties": [
+        {
+            "pid": "numberofconnectors",
+            "monitors": "NumberOfConnectors",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "integer"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "maximalpowerperconnector",
+            "monitors": "MaximalPowerPerConnector",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "simultaneouscharging",
+            "monitors": "SimultaneousCharging",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "boolean"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "location",
+            "monitors": "Location",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "latitude",
+                            "schema": {
+                                "type": "number"
+                            }
+                        },
+                        {
+                            "name": "longitude",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "connectordesiredmaxpower",
+            "monitors": "ConnectorDesiredMaxPower",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "array",
+                    "item": {
+                        "type": "object",
+                        "field": [
+                          {
+                              "name": "connectorid",
+                              "schema": {
+                                  "type": "number"
+                              }
+                          },
+                          {
+                              "name": "maxpower",
+                              "schema": {
+                                  "type": "number"
+                              }
+                          }
+                        ]
+                    }
+                }
+            },
+            "write_link": {
+                "href": "/evcharger/set-connectordesiredmaxpower/{oid}",
+                "input": {
+                    "type": "array",
+                    "item": {
+                        "type": "object",
+                        "field": [
+                          {
+                              "name": "connectorid",
+                              "schema": {
+                                  "type": "number"
+                              }
+                          },
+                          {
+                              "name": "maxpower",
+                              "schema": {
+                                  "type": "number"
+                              }
+                          }
+                        ]
+                    }
+                },
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "success",
+                            "schema": {
+                                "type": "boolean"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "connectorsmartchargingprofile",
+            "monitors": "ConnectorSmartChargingProfile",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "array",
+                    "item" : {
+                      "type": "object",
+                      "field": [
+                        {
+                          "name": "connectorid",
+                          "schema":{
+                            "type": "integer"
+                          }
+                        },
+                        {
+                          "type":"array",
+                          "item": {
+                              "type": "object",
+                              "field": [
+                                {
+                                    "name": "starttime",
+                                    "schema": {
+                                        "type": "string"
+                                    }
+                                },
+                                {
+                                    "name": "duration",
+                                    "schema": {
+                                        "type": "number"
+                                    }
+                                }  ,
+                                {
+                                    "name": "currentvalue",
+                                    "schema": {
+                                        "type": "number"
+                                    }
+                                }
+                              ]
+                          }
+                        }
+                      ]
+                    }
+                }
+            },
+            "write_link": {
+                "href": "/evcharger/set-connectorsmartchargingprofile/{oid}",
+                "input": {
+                    "type": "array",
+                    "item": {
+                        "type": "object",
+                        "field": [
+                          {
+                              "name": "starttime",
+                              "schema": {
+                                  "type": "string"
+                              }
+                          },
+                          {
+                              "name": "duration",
+                              "schema": {
+                                  "type": "number"
+                              }
+                          }  ,
+                          {
+                              "name": "currentvalue",
+                              "schema": {
+                                  "type": "number"
+                              }
+                          }
+                        ]
+                    }
+                },
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "success",
+                            "schema": {
+                                "type": "boolean"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "actualreactivepowerload",
+            "monitors": "ActualReactivePowerLoad",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
+                }
+            }
+        },
+        {
+            "pid": "actualactivepowerinjectedtogrid",
+            "monitors": "ActualActivePowerInjectedToGrid",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
+                }
+            }
+        },
+        {
+            "pid": "actualreactivepowerinjectedtogrid",
+            "monitors": "ActualReactivePowerInjectedToGrid",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
+                }
+            }
+        },
+        {
+            "pid": "actualenergyconsumedcharginsession",
+            "monitors": "ActualEnergyConsumedCharginSession",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
+                }
+            }
+        },
+        {
+            "pid": "operationalstatus",
+            "monitors": "OperationalStatus",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "connectorstatus",
+            "monitors": "ConnectorStatus",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "pid": "actualchargingsessionduration",
+            "monitors": "ActualChargingSessionDuration",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
+                }
+            }
+        }
+    ]
+}

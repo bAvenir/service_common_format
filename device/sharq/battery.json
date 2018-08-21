@@ -1,0 +1,371 @@
+{
+    "oid": "DummyBattery",
+    "name": "The example description of dummy battery",
+    "type": "adap:BatteryStorageUnit",
+    "properties": [
+        {
+            "pid": "nominalcapacity",
+            "monitors": "NominalCapacity",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "inverternominalpower",
+            "monitors": "InverterNominalPower",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "powerfactorlowerbound",
+            "monitors": "PowerFactorLowerBound",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "inverternominalpower",
+            "monitors": "InverterNominalPower",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "uppersocboundary",
+            "monitors": "UpperSOCBoundary",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "lowersocboundary",
+            "monitors": "LowerSOCBoundary",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "soc",
+            "monitors": "SOC",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "actualactivepowerload",
+            "monitors": "ActualActivePowerLoad",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            },
+            "write_link": {
+                "href": "/battery/set-actualactivepowerload/{oid}",
+                "input": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "actualactivepowerload",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                },
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "success",
+                            "schema": {
+                                "type": "boolean"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "actualactivepowergeneration",
+            "monitors": "ActualActivePowerGeneration",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            },
+            "write_link": {
+                "href": "/battery/set-actualactivepowergeneration/{oid}",
+                "input": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "actualactivepowergeneration",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                },
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "success",
+                            "schema": {
+                                "type": "boolean"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "actualreactivepowerload",
+            "monitors": "ActualReactivePowerLoad",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            },
+            "write_link": {
+                "href": "/battery/set-actualreactivepowerload/{oid}",
+                "input": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "actualreactivepowerload",
+                            "schema": {
+                                "type": "integer"
+                            }
+                        }
+                    ]
+                },
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "success",
+                            "schema": {
+                                "type": "boolean"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "actualreactivepowergeneration",
+            "monitors": "ActualReactivePowerGeneration",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "integer"
+                            }
+                        }
+                    ]
+                }
+            },
+            "write_link": {
+                "href": "/bulb/set-actualreactivepowergeneration/{oid}",
+                "input": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "actualreactivepowergeneration",
+                            "schema": {
+                                "type": "integer"
+                            }
+                        }
+                    ]
+                },
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "success",
+                            "schema": {
+                                "type": "boolean"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
