@@ -1,7 +1,8 @@
 {
-    "oid": "DummyBattery",
+    "infrastructure-id": "DummyBattery",
+    "adapter-id": "adapterid",
     "name": "The example description of dummy battery",
-    "type": "adap:BatteryStorageUnit",
+    "type": "adapters:BatteryStorageUnit",
     "properties": [
         {
             "pid": "nominalcapacity",
