@@ -1,0 +1,62 @@
+{
+    "oid": "dummygpio",
+    "name": "The example description of dummy gpio",
+    "type": "core:Device",
+    "properties": [
+        {
+            "pid": "onoff",
+            "monitors": "adap:OnOff",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "bolean"
+                            }
+                        }
+                    ]
+                }
+            },
+            "write_link": {
+                "href": "/gpiuo/set-status/{oid}",
+                "input": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "property",
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "value",
+                            "schema": {
+                                "type": "bolean"
+                            }
+                        }
+                    ]
+                },
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "success",
+                            "schema": {
+                                "type": "boolean"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
