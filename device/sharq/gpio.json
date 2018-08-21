@@ -1,5 +1,6 @@
 {
-    "oid": "dummygpio",
+    "infrastructure-id": "dummygpio",
+    "adapter-id": "adapterid",
     "name": "The example description of dummy gpio",
     "type": "core:Device",
     "properties": [
