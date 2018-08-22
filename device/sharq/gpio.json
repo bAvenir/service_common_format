@@ -28,7 +28,7 @@
                 }
             },
             "write_link": {
-                "href": "/gpiuo/set-status/{oid}",
+                "href": "/gpio/set-onoff/{oid}",
                 "input": {
                     "type": "object",
                     "field": [
