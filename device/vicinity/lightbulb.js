@@ -71,7 +71,7 @@
                         {
                             "name": "status",
                             "schema": {
-                                "type": "integer"
+                                "type": "string"
                             }
                         }
                     ]
