@@ -1,0 +1,74 @@
+/******************************************
+/* Template of thing description for device
+/******************************************
+
+{
+  // Mandatory
+  "name": "Item name",
+  "type" : "<PREFIX>:<TYPE>",
+  "infrastructure-id": "Id of the VAS in your infrastructure",
+  "adapter-id": "Id of adapter under which your item is register in you infrastructure",
+
+  // Optional
+
+  "version": "0.0.1",
+  "semanticInterface": "<Provided by RWTH if applicable>",
+
+  // Interaction patters accessible in this item
+  // Can appear in devices or services
+  // It is all they are exposing through endpoints
+  "properties": [
+    {
+      "pid": "some_name",
+      "monitors": "<PREFIX>:<TYPE>",
+      "read_link": {
+        "href": "/objects/{oid}/property/{pid}",
+        // Returns: value double
+        "output": {
+            "type": "double",
+           }
+        }
+     },
+     { ... }
+    ],
+    "actions": [
+    {
+      "aid": "some_name",
+      "affects": "<PREFIX>:<TYPE>",
+      "read_link": {
+        // Use the href to start the action, subsequent follow up to the action
+        // is done using the task id
+        "href": "/objects/{oid}/action/{aid}",
+        // Returns: JSON containing task id
+        // With the task id you can update, delete or follow the status of the action
+        }
+     },
+     { ... }
+    ],
+    "events": [
+    {
+      "eid": "some_name",
+      "monitors": "<PREFIX>:<TYPE>",
+      "read_link": {
+        // Use the href to subscribe to the event, will get a one time response with the result of the query
+        "href": "/objects/{oid}/events/{eid}",
+        // Returns: Message defined by user that creates the event
+        // If you are subscribed to the event you will get messages every
+        // time the creator of the event publishes something
+        // In the example, a JSON with one key and and a value type string
+        "output": {
+            "type": "object",
+            "field": [
+                {
+                    "name": "Message",
+                    "schema": {
+                        "type": "string"
+                    }
+                 }
+              ]
+           }
+        }
+     },
+     { ... }
+    ]
+  }
