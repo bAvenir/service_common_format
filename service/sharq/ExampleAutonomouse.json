@@ -26,13 +26,13 @@
               "datatype" : "float",
               "units" : "m3"
           },
-          "writable": true;
+          "writable": true
       }
     ],
     "actions":[
       {
         "affects" : "OnOff",
-        "input" : {}
+        "input" : {},
         "output" : {}
 
       }],

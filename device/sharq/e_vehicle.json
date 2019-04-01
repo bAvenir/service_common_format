@@ -5,7 +5,7 @@
     "properties": [
         {
             "pid": "batterynominalcapacity",
-            "monitors": "BatteryNominalCapacity",
+            "monitors": "adapters:BatteryNominalCapacity",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
@@ -29,7 +29,7 @@
         },
         {
             "pid": "nominalevcurrent",
-            "monitors": "NominalEVCurrent",
+            "monitors": "adapters:NominalEVCurrent",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
@@ -53,7 +53,7 @@
         },
         {
             "pid": "energysupplysystem",
-            "monitors": "EnergySupplySystem",
+            "monitors": "adapters:EnergySupplySystem",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
@@ -101,7 +101,7 @@
         },
         {
             "pid": "maxcablecurrent",
-            "monitors": "MaxCableCurrent",
+            "monitors": "adapters:MaxCableCurrent",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {

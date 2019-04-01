@@ -6,7 +6,7 @@
     "properties": [
         {
             "pid": "nominalcapacity",
-            "monitors": "NominalCapacity",
+            "monitors": "adapters:NominalCapacity",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
@@ -30,7 +30,7 @@
         },
         {
             "pid": "inverternominalpower",
-            "monitors": "InverterNominalPower",
+            "monitors": "adapters:InverterNominalPower",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
@@ -54,7 +54,7 @@
         },
         {
             "pid": "powerfactorlowerbound",
-            "monitors": "PowerFactorLowerBound",
+            "monitors": "adapters:PowerFactorLowerBound",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
@@ -78,7 +78,7 @@
         },
         {
             "pid": "inverternominalpower",
-            "monitors": "InverterNominalPower",
+            "monitors": "adapters:InverterNominalPower",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
@@ -102,7 +102,7 @@
         },
         {
             "pid": "uppersocboundary",
-            "monitors": "UpperSOCBoundary",
+            "monitors": "adapters:UpperSOCBoundary",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
@@ -126,7 +126,7 @@
         },
         {
             "pid": "lowersocboundary",
-            "monitors": "LowerSOCBoundary",
+            "monitors": "adapters:LowerSOCBoundary",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
@@ -150,7 +150,7 @@
         },
         {
             "pid": "soc",
-            "monitors": "SOC",
+            "monitors": "adapters:SOC",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
@@ -174,7 +174,7 @@
         },
         {
             "pid": "actualactivepowerload",
-            "monitors": "ActualActivePowerLoad",
+            "monitors": "adapters:ActualActivePowerLoad",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
@@ -223,7 +223,7 @@
         },
         {
             "pid": "actualactivepowergeneration",
-            "monitors": "ActualActivePowerGeneration",
+            "monitors": "adapters:ActualActivePowerGeneration",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
@@ -272,7 +272,7 @@
         },
         {
             "pid": "actualreactivepowerload",
-            "monitors": "ActualReactivePowerLoad",
+            "monitors": "adapters:ActualReactivePowerLoad",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
@@ -321,7 +321,7 @@
         },
         {
             "pid": "actualreactivepowergeneration",
-            "monitors": "ActualReactivePowerGeneration",
+            "monitors": "adapters:ActualReactivePowerGeneration",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
