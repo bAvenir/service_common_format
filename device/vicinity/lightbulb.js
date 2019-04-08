@@ -1,11 +1,12 @@
 {
-    "oid": "bulb1",
-    "name": "human reads my name here",
-    "type": "PHLightBulb",
+    "name": "Item name",
+    "type" : "adapters:Lightbulb",
+    "infrastructure-id": "Id of the VAS in your infrastructure",
+    "adapter-id": "Id of adapter under which your item is register in you infrastructure",
     "properties": [
         {
             "pid": "brightness",
-            "monitors": "Brightness",
+            "monitors": "adapters:Luminance",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
@@ -56,7 +57,7 @@
     "actions": [
         {
             "aid": "set-brightness",
-            "affects": "Brightness",
+            "affects": "adapters:Luminance",
             "read_link": {
                 "href": "/device/{oid}/status/{aid}",
                 "output": {
@@ -107,7 +108,7 @@
     "events": [
         {
             "eid": "set-brightness",
-            "monitors": "Brightness",
+            "monitors": "adapters:Luminance",
             "output": {
                 "type": "object",
                 "field": [
