@@ -1,24 +1,24 @@
 {
     "oid": "dummysmartmeter",
     "name": "The example description of dummy smart meter",
-    "type": "adap:PowerMeter",
+    "type" : "adapters:PowerMeter",
+    "version": "1.0",
+    "keywords": [
+        "SHAR-Q",
+        "SmartMeter",
+        "PowerMeter"
+    ],
     "properties": [
         {
-            "pid": "activepowerabsorbedfromgrid",
-            "monitors": "ActivePowerAbsorbedFromGrid",
+            "pid": "activepowerabsorbedfromthegrid",
+            "monitors": "adapters:ActivePowerAbsorbedFromGrid",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
                     "type": "object",
                     "field": [
                         {
-                            "name": "property",
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        {
-                            "name": "value",
+                            "name": "ActivePowerAbsorbedFromGrid",
                             "schema": {
                                 "type": "number"
                             }
@@ -28,21 +28,15 @@
             }
         },
         {
-            "pid": "reactivepowerabsorbedfromgrid",
-            "monitors": "ReactivePowerAbsorbedFromGrid",
+            "pid": "reactivepowerabsorbedfromthegrid",
+            "monitors": "adapters:ReactivePowerAbsorbedFromGrid",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
                     "type": "object",
                     "field": [
                         {
-                            "name": "property",
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        {
-                            "name": "value",
+                            "name": "ReactivePowerAbsorbedFromGrid",
                             "schema": {
                                 "type": "number"
                             }
@@ -52,21 +46,15 @@
             }
         },
         {
-            "pid": "activepowerinjectedtogrid",
-            "monitors": "ActivePowerInjectedToGrid",
+            "pid": "activepowerinjectedtothegrid",
+            "monitors": "adapters:ActivePowerInjectedToGrid",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
                     "type": "object",
                     "field": [
                         {
-                            "name": "property",
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        {
-                            "name": "value",
+                            "name": "ActivePowerInjectedToGrid",
                             "schema": {
                                 "type": "number"
                             }
@@ -76,21 +64,15 @@
             }
         },
         {
-            "pid": "reactivepowerinjectedtogrid",
-            "monitors": "ReactivePowerInjectedToGrid",
+            "pid": "reactivepowerinjectedtothegrid",
+            "monitors": "adapters:ReactivePowerInjectedToGrid",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
                     "type": "object",
                     "field": [
                         {
-                            "name": "property",
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        {
-                            "name": "value",
+                            "name": "ReactivePowerInjectedToGrid",
                             "schema": {
                                 "type": "number"
                             }
@@ -101,20 +83,14 @@
         },
         {
             "pid": "accumulatedenergyconsumed",
-            "monitors": "AccumulatedEnergyConsumed",
+            "monitors": "adapters:AccumulatedEnergyConsumed",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
                     "type": "object",
                     "field": [
                         {
-                            "name": "property",
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        {
-                            "name": "value",
+                            "name": "AccumulatedEnergyConsumed",
                             "schema": {
                                 "type": "number"
                             }
@@ -124,21 +100,15 @@
             }
         },
         {
-            "pid": "accumulatedenergyinjectedtogrid",
-            "monitors": "AccumulatedEnergyInjectedToGrid",
+            "pid": "accumulatedenergyinjectedtothegrid",
+            "monitors": "adapters:AccumulatedEnergyInjectedToGrid",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
                     "type": "object",
                     "field": [
                         {
-                            "name": "property",
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        {
-                            "name": "value",
+                            "name": "AccumulatedEnergyInjectedToGrid",
                             "schema": {
                                 "type": "number"
                             }
@@ -146,6 +116,16 @@
                     ]
                 }
             }
+        }
+    ],
+    "located-in": [
+        {
+            "location_type": "s4city:City",
+            "label": "Bratislava"
+        },
+        {
+            "location_type": "s4bldg:Building",
+            "label": "Aupark Tower"
         }
     ]
 }

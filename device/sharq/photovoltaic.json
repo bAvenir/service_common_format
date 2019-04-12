@@ -1,24 +1,42 @@
 {
-    "oid": "dummyphotovoltaic",
-    "name": "Dummy photovoltaic template",
-    "type": "adap:PhotovoltaicPanel",
+    "oid": "dummyphotovoltaicpanel",
+    "name": "The example description of dummy photovoltaic panel",
+    "type" : "adapters:PhotovoltaicPanel",
+    "version": "1.0",
+    "keywords": [
+        "SHAR-Q",
+        "PV",
+        "PhotovoltaicPanel"
+    ],
     "properties": [
         {
             "pid": "nominalproductioncapacity",
-            "monitors": "NominalProductionCapacity",
+            "monitors": "adapters:PvInstalledCapacity",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
                     "type": "object",
                     "field": [
                         {
-                            "name": "property",
+                            "name": "PvInstalledCapacity",
                             "schema": {
-                                "type": "string"
+                                "type": "integer"
                             }
-                        },
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "gpsaltitude",
+            "monitors": "adapters:GPSAltitude",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
                         {
-                            "name": "value",
+                            "name": "GPSAltitude",
                             "schema": {
                                 "type": "number"
                             }
@@ -28,21 +46,33 @@
             }
         },
         {
-            "pid": "location",
-            "monitors": "Location",
+            "pid": "gpslatitude",
+            "monitors": "adapters:GPSLatitude",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
                     "type": "object",
                     "field": [
                         {
-                            "name": "latitude",
+                            "name": "GPSLatitude",
                             "schema": {
                                 "type": "number"
                             }
-                        },
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "gpslongitude",
+            "monitors": "adapters:GPSLongitude",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
                         {
-                            "name": "longitude",
+                            "name": "GPSLongitude",
                             "schema": {
                                 "type": "number"
                             }
@@ -53,22 +83,16 @@
         },
         {
             "pid": "azimuth",
-            "monitors": "Azimuth",
+            "monitors": "adapters:Azimuth",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
                     "type": "object",
                     "field": [
                         {
-                            "name": "property",
+                            "name": "Azimuth",
                             "schema": {
-                                "type": "string"
-                            }
-                        },
-                        {
-                            "name": "value",
-                            "schema": {
-                                "type": "integer"
+                                "type": "number"
                             }
                         }
                     ]
@@ -77,68 +101,14 @@
         },
         {
             "pid": "elevation",
-            "monitors": "Elevation",
+            "monitors": "adapters:Elevation",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
                     "type": "object",
                     "field": [
                         {
-                            "name": "property",
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        {
-                            "name": "value",
-                            "schema": {
-                                "type": "integer"
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "pid": "serviceLevel",
-            "monitors": "ServiceLevel",
-            "read_link": {
-                "href": "/device/{oid}/property/{pid}",
-                "output": {
-                    "type": "object",
-                    "field": [
-                        {
-                            "name": "property",
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        {
-                            "name": "value",
-                            "schema": {
-                                "type": "string"
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "pid": "reactivepowerproduction",
-            "monitors": "ReactivePowerProduction",
-            "read_link": {
-                "href": "/device/{oid}/property/{pid}",
-                "output": {
-                    "type": "object",
-                    "field": [
-                        {
-                            "name": "property",
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        {
-                            "name": "value",
+                            "name": "Elevation",
                             "schema": {
                                 "type": "number"
                             }
@@ -148,23 +118,17 @@
             }
         },
         {
-            "pid": "accumulatedenergyimportedtogrid",
-            "monitors": "AccumulatedEnergyImportedToGrid",
+            "pid": "servicelevel",
+            "monitors": "adapters:ServiceLevel",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
                     "type": "object",
                     "field": [
                         {
-                            "name": "property",
+                            "name": "ServiceLevel",
                             "schema": {
                                 "type": "string"
-                            }
-                        },
-                        {
-                            "name": "value",
-                            "schema": {
-                                "type": "integer"
                             }
                         }
                     ]
@@ -172,23 +136,89 @@
             }
         },
         {
-            "pid": "activepowerproduction",
-            "monitors": "ActivePowerProduction",
+            "pid": "actualactivepowerproduction",
+            "monitors": "adapters:InverterPVActualActivePower",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
                     "type": "object",
                     "field": [
                         {
-                            "name": "property",
+                            "name": "InverterPVActualActivePower",
                             "schema": {
-                                "type": "string"
+                                "type": "number"
                             }
-                        },
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "actualreactivepowerproduction",
+            "monitors": "adapters:InverterPVActualReactivePower",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
                         {
-                            "name": "value",
+                            "name": "InverterPVActualReactivePower",
                             "schema": {
-                                "type": "integer"
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "accumulatedenergyproducedbythepv",
+            "monitors": "adapters:InverterAccumulatedActiveEnergyProduction",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "InverterAccumulatedActiveEnergyProduction",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "consumeractivepowerload",
+            "monitors": "adapters:InverterConsumerActivePowerLoad",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "InverterConsumerActivePowerLoad",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "gridactivepowerload",
+            "monitors": "adapters:InverterGridActivePowerLoad",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "InverterGridActivePowerLoad",
+                            "schema": {
+                                "type": "number"
                             }
                         }
                     ]
@@ -196,104 +226,14 @@
             }
         }
     ],
-    "actions": [
+    "located-in": [
         {
-            "aid": "set-activepowersetpoint",
-            "affects": "ActivePowerSetPoint",
-            "read_link": {
-                "href": "/device/{oid}/status/{aid}",
-                "output": {
-                    "type": "object",
-                    "field": [
-                        {
-                            "name": "action",
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        {
-                            "name": "status",
-                            "schema": {
-                                "type": "integer"
-                            }
-                        }
-                    ]
-                }
-            },
-            "write_link": {
-                "href": "/pv/set-activepowersetpoint/{oid}",
-                "input": {
-                    "type": "object",
-                    "field": [
-                        {
-                            "name": "activepowersetpoint-level",
-                            "schema": {
-                                "type": "number"
-                            }
-                        }
-                    ]
-                },
-                "output": {
-                    "type": "object",
-                    "field": [
-                        {
-                            "name": "success",
-                            "schema": {
-                                "type": "boolean"
-                            }
-                        }
-                    ]
-                }
-            }
+            "location_type": "s4city:City",
+            "label": "Bratislava"
         },
         {
-            "aid": "set-reactivepowersetpoint",
-            "affects": "ReactivePowerSetPoint",
-            "read_link": {
-                "href": "/device/{oid}/status/{aid}",
-                "output": {
-                    "type": "object",
-                    "field": [
-                        {
-                            "name": "action",
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        {
-                            "name": "status",
-                            "schema": {
-                                "type": "integer"
-                            }
-                        }
-                    ]
-                }
-            },
-            "write_link": {
-                "href": "/pv/set-reactivepowersetpoint/{oid}",
-                "input": {
-                    "type": "object",
-                    "field": [
-                        {
-                            "name": "reactivepowersetpoint-level",
-                            "schema": {
-                                "type": "number"
-                            }
-                        }
-                    ]
-                },
-                "output": {
-                    "type": "object",
-                    "field": [
-                        {
-                            "name": "success",
-                            "schema": {
-                                "type": "boolean"
-                            }
-                        }
-                    ]
-                }
-            }
+            "location_type": "s4bldg:Building",
+            "label": "Aupark Tower"
         }
     ]
 }

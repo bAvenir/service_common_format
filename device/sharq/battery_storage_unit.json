@@ -1,0 +1,395 @@
+{
+    "oid": "dummybattery",
+    "name": "The example description of dummy battery storage unit",
+    "type" : "adapters:BatteryStorageUnit",
+    "version": "1.0",
+    "keywords": [
+        "SHAR-Q",
+        "Battery",
+        "BatteryStorageUnit"
+    ],
+    "properties": [
+        {
+            "pid": "inverternominaloutputpower",
+            "monitors": "adapters:InverterNominalPower",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "InverterNominalPower",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "currentactivepowerload",
+            "monitors": "adapters:InverterActualActivePower",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "InverterActualActivePower",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "currentreactivepowerload",
+            "monitors": "adapters:InverterActualReactivePower",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "InverterActualReactivePower",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "accumulatedactiveenergyproduction",
+            "monitors": "adapters:InverterAccumulatedActiveEnergyProduction",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "InverterAccumulatedActiveEnergyProduction",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "accumulatedactiveenergyconsumption",
+            "monitors": "adapters:InverterAccumulatedActiveEnergyConsumption",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "InverterAccumulatedActiveEnergyConsumption",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "frequency",
+            "monitors": "adapters:InverterActualFreuqency",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "InverterActualFreuqency",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "batterynominalcapacity",
+            "monitors": "adapters:BatteryNominalCapacity",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "BatteryNominalCapacity",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "batteryactualdcpower",
+            "monitors": "adapters:ActualDcPower",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "ActualDcPower",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "batteryactualdcvoltage",
+            "monitors": "adapters:ActualDcVoltage",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "ActualDcVoltage",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "batteryactualdccurrent",
+            "monitors": "adapters:ActualDcCurrent",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "ActualDcCurrent",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "upperbatterysocboundary",
+            "monitors": "adapters:MaxBatteryStateOfCharge",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "MaxBatteryStateOfCharge",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            },
+            "write_link": {
+                "href": "/battery/set-upperbatterysocboundary/{oid}",
+                "input": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "MaxBatteryStateOfCharge",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                },
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "success",
+                            "schema": {
+                                "type": "boolean"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "lowerbatterysocboundary",
+            "monitors": "adapters:MinBatteryStateOfCharge",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "MinBatteryStateOfCharge",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            },
+            "write_link": {
+                "href": "/battery/set-lowerbatterysocboundary/{oid}",
+                "input": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "MinBatteryStateOfCharge",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                },
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "success",
+                            "schema": {
+                                "type": "boolean"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "pid": "batterysoc",
+            "monitors": "adapters:ActualBatteryStateOfCharge",
+            "read_link": {
+                "href": "/device/{oid}/property/{pid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "ActualBatteryStateOfCharge",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "actions": [
+        {
+            "aid": "setchargingactivepowersetpoint",
+            "affects": "adapters:InverterActualActivePower",
+            "read_link": {
+                "href": "/device/{oid}/status/{aid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "status",
+                            "schema": {
+                                "type": "integer"
+                            }
+                        }
+                    ]
+                }
+            },
+            "write_link": {
+                "href": "/battery/set-chargingactivepowersetpoint/{oid}",
+                "input": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "InverterActualActivePower",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                },
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "success",
+                            "schema": {
+                                "type": "boolean"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "aid": "setchargingreactivepowersetpoint",
+            "affects": "adapters:InverterActualReactivePower",
+            "read_link": {
+                "href": "/device/{oid}/status/{aid}",
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "status",
+                            "schema": {
+                                "type": "integer"
+                            }
+                        }
+                    ]
+                }
+            },
+            "write_link": {
+                "href": "/battery/set-chargingreactivepowersetpoint/{oid}",
+                "input": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "InverterActualReactivePower",
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                },
+                "output": {
+                    "type": "object",
+                    "field": [
+                        {
+                            "name": "success",
+                            "schema": {
+                                "type": "boolean"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "located-in": [
+        {
+            "location_type": "s4city:City",
+            "label": "Bratislava"
+        },
+        {
+            "location_type": "s4bldg:Building",
+            "label": "Aupark Tower"
+        }
+    ]
+}
