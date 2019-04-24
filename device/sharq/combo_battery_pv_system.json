@@ -119,14 +119,14 @@
         },
         {
             "pid": "frequency",
-            "monitors": "adapters:InverterActualFreuqency",
+            "monitors": "adapters:InverterActualFrequency",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
                     "type": "object",
                     "field": [
                         {
-                            "name": "InverterActualFreuqency",
+                            "name": "InverterActualFrequency",
                             "schema": {
                                 "type": "number"
                             }
