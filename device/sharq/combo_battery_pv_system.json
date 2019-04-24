@@ -173,14 +173,14 @@
         },
         {
             "pid": "batteryoperationstatus",
-            "monitors": "adapters:BatteryOperationStatus",
+            "monitors": "adapters:BatteryOperationalStatus",
             "read_link": {
                 "href": "/device/{oid}/property/{pid}",
                 "output": {
                     "type": "object",
                     "field": [
                         {
-                            "name": "BatteryOperationStatus",
+                            "name": "BatteryOperationalStatus",
                             "schema": {
                                 "type": "string"
                             }
